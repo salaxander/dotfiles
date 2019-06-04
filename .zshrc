@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions zsh-autosuggestions)
+plugins=(git zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
@@ -100,4 +100,4 @@ source $ZSH/oh-my-zsh.sh
 #
 alias k="kubectl"
 eval $(thefuck --alias)
-export PATH=$PATH:/usr/local/go/bin:/home/xander/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
