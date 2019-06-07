@@ -101,3 +101,4 @@ source $ZSH/oh-my-zsh.sh
 alias k="kubectl"
 eval $(thefuck --alias)
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
