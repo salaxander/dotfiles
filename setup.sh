@@ -36,12 +36,15 @@ echo "Installing golang..."
 wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.12.5.linux-amd64.tar.gz
 
+# Install Azure CLI
+echo ''
+echo "Installing Azure CLI, this will take a while..."
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 # Install kubectl
 echo ''
 echo "Installing kubectl..."
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+az aks install-cli
 
 # Install thefuck
 echo ''
