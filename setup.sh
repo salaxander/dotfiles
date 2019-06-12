@@ -15,6 +15,33 @@ echo ''
 echo "Now installing git and bash-completion..."
 sudo apt-get install git bash-completion -y
 
+# Install commonly used packages
+echo ''
+echo "Installing commonly used packages..."
+sudo apt get install -y \
+    gcc \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-commons \
+    make \
+    vim \
+    wget \
+    tmux
+
+# Install go
+echo ''
+echo "Installing golang..."
+wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
+sudo tar -C -zxf /usr/local go1.12.5.linux-amd64.tar.gz
+
+# Install thefuck
+echo ''
+echo "Installing thefuck..."
+sudo apt install -y python3-dev python3-pip python3-setuptools
+sudo pip3 install thefuck
+
 echo ''
 echo "Now configuring git-completion..."
 GIT_VERSION=`git --version | awk '{print $3}'`
@@ -54,6 +81,9 @@ git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zs
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# Copy dotfiles to home directory
+cp .zshrc ~/.zshrc 
+
 # Set default shell to zsh
 echo ''
 echo "Setting default shell to zsh"
@@ -65,33 +95,3 @@ then
 else
     echo "Default shell not set successfully..." >&2
 fi
-
-# Install commonly used packages
-echo ''
-echo "Installing commonly used packages..."
-sudo apt get install -y \
-    gcc \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-commons \
-    make \
-    vim \
-    wget \
-    tmux
-
-# Install thefuck
-echo ''
-echo "Installing thefuck..."
-sudo apt install -y python3-dev python3-pip python3-setuptools
-sudo pip3 install thefuck
-
-# Install go
-echo ''
-echo "Installing golang..."
-wget https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
-sudo tar -C -zxf \usr\local https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz
-
-# Link dotfiles to home directory
-ln -sf .zshrc ~/.zshrc 
