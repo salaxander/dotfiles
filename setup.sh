@@ -18,7 +18,7 @@ sudo apt-get install git bash-completion -y
 # Install commonly used packages
 echo ''
 echo "Installing commonly used packages..."
-sudo apt get install -y \
+sudo apt-get install -y \
     gcc \
     apt-transport-https \
     ca-certificates \
@@ -44,7 +44,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 # Install kubectl
 echo ''
 echo "Installing kubectl..."
-az aks install-cli
+sudo az aks install-cli
 
 # Install thefuck
 echo ''
